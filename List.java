@@ -23,15 +23,29 @@ public class List<T extends Comparable>  implements Iterable<T>{
     }
     
     private class ListIterator implements Iterator<T>{
-       private Node<T> nextNode;
+       private Node nextNode;
         
+       public ListIterator()
+       {
+           nextNode =head;
+       
+       }
+       
+       
         public boolean hasNext() {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            return nextNode!=null; 
         }
 
         @Override
         public T next() {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            if( !hasNext()){
+                
+            }
+            
+            T retval;
+            retval = nextNode.getData();
+            nextNode=nextNode.getNext();
+            return retval;
         }
     }
     
