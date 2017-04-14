@@ -13,7 +13,27 @@ import java.util.Iterator;
  */
 public class List<T extends Comparable>  implements Iterable<T>{
     private Node head;
-
+    public boolean isEmpty()
+    {
+        return (head ==null);
+    }
+    
+    public List<T> AddItem(T newItem)
+    {
+        if(isEmpty())
+        {
+            head = new Node(newItem);
+        }else
+        {
+           head.setNext(newItem);
+        
+        }
+        
+        
+        return this;
+    }
+    
+    
     /**
      * the iterator for using for(:)
      * @return iterator for class
@@ -61,10 +81,23 @@ public class List<T extends Comparable>  implements Iterable<T>{
             next = NextNode;
             data = Data;
         }
+        
+        Node(T Data)
+        {
+            this(Data,null);
+        }
+        
+        
         Node getNext()
         {
             return next;
         }
+        
+        void setNext(T data)
+        {
+            next = new Node(data);
+        }
+        
         T getData()
         {
             return data;
