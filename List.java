@@ -6,6 +6,7 @@
 package hw5;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  *
@@ -59,7 +60,7 @@ public class List<T extends Comparable>  implements Iterable<T>{
         @Override
         public T next() {
             if( !hasNext()){
-                
+                throw new NoSuchElementException();
             }
             
             T retval;

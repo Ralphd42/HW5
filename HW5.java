@@ -18,6 +18,12 @@ public class HW5 {
         // TODO code application logic here
         
         List<String> theData = new List<String>();
+        theData.AddItem("One").AddItem("Two").AddItem("Three").AddItem("Four").AddItem("Five");
+        for( String dt : theData){
+            System.out.println(dt);
+        
+        }
+        
         
     }
     
