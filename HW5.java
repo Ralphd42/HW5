@@ -25,6 +25,14 @@ public class HW5 {
         
         }
         
+        List<Integer> intLIst = new List<>();
+        intLIst.AddItem(9).AddItem(8).AddItem(7).AddItem(6).AddItem(5);
+        System.out.println("---------------------------");
+        intLIst.BubbleSort();
+        for( Integer vt : intLIst){
+            System.out.println(vt);
+        
+        }
         
         
         
