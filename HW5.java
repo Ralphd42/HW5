@@ -19,10 +19,14 @@ public class HW5 {
         
         List<String> theData = new List<String>();
         theData.AddItem("One").AddItem("Two").AddItem("Three").AddItem("Four").AddItem("Five");
+        theData.BubbleSort();
         for( String dt : theData){
             System.out.println(dt);
         
         }
+        
+        
+        
         
         
     }
