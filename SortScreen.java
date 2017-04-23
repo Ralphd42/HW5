@@ -130,6 +130,10 @@ public class SortScreen extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnAddToFrontActionPerformed
 
+    /**
+     * Adds item to tail of List
+     * @param evt 
+     */
     private void btnAddtoTailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddtoTailActionPerformed
         String input = txtNewInteger.getText();
         try {
@@ -141,12 +145,14 @@ public class SortScreen extends javax.swing.JFrame {
         } catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog(null,
                     "invalid Entry", "Please Enter Integers only!", JOptionPane.INFORMATION_MESSAGE);
-            //System.err.print("Invalid Item - ");
-            //System.err.println(line);
             txtNewInteger.setText("");
         }
     }//GEN-LAST:event_btnAddtoTailActionPerformed
 
+    /**
+     * Bubble Sorts the list
+     * @param evt 
+     */
     private void btnSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSortActionPerformed
         intList.BubbleSort();
         txtListContent.setText(intList.toString());

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hw5;
 
 import java.io.BufferedReader;
@@ -26,14 +21,15 @@ public class HW5 {
     public static void main(String[] args) {
         // TODO code application logic here
         if (args.length <= 0) {
-            List<String> theData = new List<String>();
+            // test using a string list
+            List<String> theData = new List<>();
             theData.AddItem("One").AddItem("Two").AddItem("Three").AddItem("Four").AddItem("Five");
             theData.BubbleSort();
             for (String dt : theData) {
                 System.out.println(dt);
 
             }
-
+            // test using an Inter List
             List<Integer> intLIst = new List<>();
             intLIst.AddItem(9).AddItem(8).AddItem(7).AddItem(6).AddItem(5);
             System.out.println("---------------------------");
@@ -43,6 +39,7 @@ public class HW5 {
 
             }
         } else if (args[0].equals("-f")) {
+            // test using integer array files
             String fname = args[1];
             List<Integer> IntList = new List<>();
             int numitems = FillListFromFile(IntList, args[1]);
@@ -59,10 +56,13 @@ public class HW5 {
             }
             // save to a file
             if (args.length > 2) {
+                TextHeader("Saved to File : " + args[2]);
+                
                 SaveListToFile(IntList, args[2]);
             }
 
         } else if (args[0].equals("-u")) {
+            // test using a
             // user interface
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

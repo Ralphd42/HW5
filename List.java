@@ -96,7 +96,7 @@ public class List<T extends Comparable> implements Iterable<T> {
     /**
      * *
      * Bubble sorts the list
-     *
+     * added a swapped variable to keep from running longer than needed
      * @return returns the list so it can be used as a chained call
      */
     public List<T> BubbleSort() {
@@ -104,7 +104,7 @@ public class List<T extends Comparable> implements Iterable<T> {
         T tmpSwitch;
         long end = size() - 1;
 
-        //\\for (int i=0; i<input-1;i++)
+        
         for (long j = 0; (j < size() - 1) && swapped; j++) {
             swapped = false;
             Node tmpNode = head;
@@ -177,6 +177,7 @@ public class List<T extends Comparable> implements Iterable<T> {
 
     /**
      * The Iterator class
+     * iteraror so that for : can be used to iterate list
      */
     private class ListIterator implements Iterator<T> {
 
@@ -218,7 +219,7 @@ public class List<T extends Comparable> implements Iterable<T> {
     }
 
     /**
-     * Node  this is the node class to be used 
+     * Node  this is the node class to be used internally by the list
      */
     private class Node {
 
