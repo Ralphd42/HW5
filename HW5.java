@@ -62,7 +62,20 @@ public class HW5 {
                 SaveListToFile(IntList, args[2]);
             }
 
+        } else if (args[0].equals("-u")) {
+            // user interface
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new SortScreen().setVisible(true);
+            }
+        });
+        
+        }else{
+            TextHeader("Unsupported option");
+        
+        
         }
+        
     }
 
     /**

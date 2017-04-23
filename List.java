@@ -15,7 +15,7 @@ import java.util.NoSuchElementException;
 public class List<T extends Comparable> implements Iterable<T> {
 
     private Node head; //head Node
-
+    
     /***
      * Tests for Empty List
      * @return true if empty 
@@ -104,6 +104,25 @@ public class List<T extends Comparable> implements Iterable<T> {
         return this;
     }
 
+    /**
+     * Override of toString 
+     * @return String representation of ADT
+     */
+    public String toString()
+    {
+        StringBuilder sb = new StringBuilder();
+        Node tmp = head;
+        while( tmp!=null )
+        {
+            sb.append(tmp.getData().toString());
+            sb.append("\n");
+            tmp=tmp.getNext();
+        }
+        return sb.toString();
+    }
+    
+    
+    
     /**
      * the iterator for using for(:)
      *

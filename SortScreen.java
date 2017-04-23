@@ -5,11 +5,15 @@
  */
 package hw5;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ralph
  */
 public class SortScreen extends javax.swing.JFrame {
+
+    List<Integer> intList = new List<>();
 
     /**
      * Creates new form SortScreen
@@ -27,21 +31,126 @@ public class SortScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnAddToFront = new javax.swing.JButton();
+        btnAddtoTail = new javax.swing.JButton();
+        btnSort = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtListContent = new javax.swing.JTextArea();
+        txtNewInteger = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnAddToFront.setText("Add to Head");
+        btnAddToFront.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddToFrontActionPerformed(evt);
+            }
+        });
+
+        btnAddtoTail.setText("Add to Tail");
+        btnAddtoTail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddtoTailActionPerformed(evt);
+            }
+        });
+
+        btnSort.setText("Sort");
+        btnSort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSortActionPerformed(evt);
+            }
+        });
+
+        txtListContent.setEditable(false);
+        txtListContent.setColumns(20);
+        txtListContent.setRows(5);
+        jScrollPane1.setViewportView(txtListContent);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(txtNewInteger, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAddToFront, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAddtoTail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(39, 39, 39))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnAddToFront)
+                .addGap(18, 18, 18)
+                .addComponent(btnAddtoTail)
+                .addGap(20, 20, 20)
+                .addComponent(btnSort)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 16, Short.MAX_VALUE)
+                .addComponent(txtNewInteger, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+/**
+     * Add item to head of list
+     *
+     * @param evt
+     */
+    private void btnAddToFrontActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToFrontActionPerformed
+        String input = txtNewInteger.getText();
+        try {
+
+            int parsed = Integer.parseInt(input);
+            intList.AddItemAtHead(parsed);
+            txtListContent.setText(intList.toString());
+            txtNewInteger.setText("");
+        } catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(null,
+                    "invalid Entry", "Please Enter Integers only!", JOptionPane.INFORMATION_MESSAGE);
+            //System.err.print("Invalid Item - ");
+            //System.err.println(line);
+            txtNewInteger.setText("");
+        }
+        
+        
+    }//GEN-LAST:event_btnAddToFrontActionPerformed
+
+    private void btnAddtoTailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddtoTailActionPerformed
+        String input = txtNewInteger.getText();
+        try {
+
+            int parsed = Integer.parseInt(input);
+            intList.AddItem(parsed);
+            txtListContent.setText(intList.toString());
+            txtNewInteger.setText("");
+        } catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(null,
+                    "invalid Entry", "Please Enter Integers only!", JOptionPane.INFORMATION_MESSAGE);
+            //System.err.print("Invalid Item - ");
+            //System.err.println(line);
+            txtNewInteger.setText("");
+        }
+    }//GEN-LAST:event_btnAddtoTailActionPerformed
+
+    private void btnSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSortActionPerformed
+        intList.BubbleSort();
+        txtListContent.setText(intList.toString());
+    }//GEN-LAST:event_btnSortActionPerformed
 
     /**
      * @param args the command line arguments
@@ -71,13 +180,14 @@ public class SortScreen extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SortScreen().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddToFront;
+    private javax.swing.JButton btnAddtoTail;
+    private javax.swing.JButton btnSort;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea txtListContent;
+    private javax.swing.JTextField txtNewInteger;
     // End of variables declaration//GEN-END:variables
 }
